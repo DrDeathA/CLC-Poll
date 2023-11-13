@@ -1,0 +1,47 @@
+<div class="flex justify-content-evenly flex-wrap">
+    <p-card>
+        <label>Topic</label> <br>
+        <input title="topic" type="text" pInputText [(ngModel)]="poll.topic" /> <br>
+    </p-card>
+</div>
+
+<div class="flex justify-content-center flex-wrap">
+    <p-button (click)="showAddQuestion()" label="New Question" class="m-2"></p-button>
+    <p-button (click)="save()" label="Save" class="m-2"></p-button>
+</div>
+
+<div class="flex justify-content-center flex-wrap">
+    <div *ngFor="let question of poll.questions" class="m-2">
+        <p-card>
+            <label>Title:</label> <br>
+            <h2>{{question.title}}</h2>
+            <label>SubText:</label><br>
+            <h4>{{question.subText}}</h4>
+
+            <p-button (click)="selectQuestion(question)" label="Add Options"></p-button> <br>
+        </p-card>
+    </div>
+</div>
+
+<p-dialog header="Header" [(visible)]="showAddQuestionDialog" [style]="{width: '50vw'}" [closable]="false"
+    [draggable]="false">
+    <div class="flex justify-content-center flex-wrap">
+        <label class="m-1">Title</label>
+        <input class="m-1" title="title" type="text" pInputText [(ngModel)]="tempQuestion.title" />
+        <label class="m-1">Sub Text</label>
+        <input class="m-1" title="subText" type="text" pInputText [(ngModel)]="tempQuestion.subText" />
+        <p-button class="m-1" (click)="addQuestion()" label="Add Question"></p-button>
+    </div>
+</p-dialog>
+
+<p-dialog header="Header" [(visible)]="showAddOptionDialog" [style]="{width: '50vw'}" [draggable]="false">
+    <div class="flex justify-content-center flex-wrap">
+        <label class="m-1">Option:</label> <br>
+        <input class="m-1" title="Option" type="text" pInputText [(ngModel)]="option" /> <br>
+        <label class="m-1">Options:</label> <br>
+        <p-button (click)="addOption()" label="Add option"></p-button>
+    </div>
+    <div class="flex justify-content-center flex-wrap" *ngFor="let option of selectedQuestion.options">
+        <label>{{option.optionText}}</label> <br>
+    </div>
+</p-dialog>

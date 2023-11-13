@@ -1,0 +1,31 @@
+<div class="flex justify-content-center flex-wrap">
+    <div class="m-2">
+        <p-card header="Login" [header]="'Login'">
+            <label>*Email:</label> <br>
+            <input title="email" type="text" pInputText [(ngModel)]="login.email" /> <br>
+            <label>*Password:</label> <br>
+            <p-password [(ngModel)]="login.password" [toggleMask]="true" [feedback]="false"></p-password>
+            <br>
+            <br>
+            <p-button label="Login" (onClick)="loginUser()"></p-button>
+        </p-card>
+    </div>
+
+    <div class="m-2">
+        <p-card [header]="'Register'">
+            <label>*Name:</label> <br>
+            <input title="email" type="text" pInputText [(ngModel)]="register.name" required="true"/> <br>
+            <label>*Surname:</label> <br>
+            <input title="password" type="text" pInputText [(ngModel)]="register.surname" required="true"/> <br>
+            <label>*Email:</label> <br>
+            <input title="email" type="text" pInputText [(ngModel)]="register.email" required="true"/> <br>
+            <label>*Passowrd:</label> <br>
+            <p-password [(ngModel)]="register.password" [toggleMask]="true" required="true"></p-password> <br>
+            <label>Confirm Password:</label> <br>
+            <p-password [(ngModel)]="tempPassword" [feedback]="false"></p-password>
+            <br>
+            <br>
+            <p-button label="Register" (onClick)="registerUser()"></p-button>
+        </p-card>
+    </div>
+</div>

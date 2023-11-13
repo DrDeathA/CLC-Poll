@@ -1,0 +1,11 @@
+<div class="flex justify-content-evenly flex-wrap">
+    <div class="chartCard">
+        <div class="m-2" *ngFor="let chart of charts">
+            <p-card>
+                <h3>{{chart.title}}</h3>
+                <p>{{chart.subText}}</p>
+                <p-chart type="pie" [data]="chart"></p-chart>
+            </p-card>
+        </div>
+    </div>
+</div>

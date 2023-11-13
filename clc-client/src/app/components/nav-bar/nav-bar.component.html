@@ -1,0 +1,20 @@
+<div class="navBarBody">
+    <div class="navBarBody" *ngIf="auth.user">
+        <div class="navBar">
+            <div *ngFor="let item of menuItems" class="p-panelmenu-panel">
+                <div class="p-component p-panelmenu-header" [routerLink]="item.routerLink"
+                    routerLinkActive="p-state-active">
+                    <a class="p-panelmenu-header-link" [routerLink]="item.routerLink" routerLinkActive="p-state-active">
+                        <span class="p-panelmenu-text">{{item.label}}</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="user-nav">
+            <label>{{auth.user.name}}</label>
+            <button title="logout" pButton pRipple label="Log out" class="p-button-danger"
+                (click)="auth.logout()"></button>
+        </div>
+    </div>
+</div>

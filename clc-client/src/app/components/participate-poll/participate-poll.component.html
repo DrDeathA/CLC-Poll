@@ -1,0 +1,15 @@
+<div class="flex justify-content-evenly flex-wrap">
+    <div class="questions">
+        <div class="m-2" *ngFor="let question of pollService.globalPoll?.questions">
+            <p-card>
+                <h3>{{question.title}}</h3>
+                <p>{{question.subText}}</p>        
+                <p-dropdown [options]="question.options" [(ngModel)]="question.answerOptionId" optionLabel="optionText"
+                optionValue="optionId" [showClear]="true" placeholder="Options"></p-dropdown>
+            </p-card>
+        </div>
+    </div>
+</div>
+<div class="flex justify-content-evenly flex-wrap">
+    <button title="save" pButton pRipple label="Save" class="p-button-success" (click)="submitOptions()"></button>
+</div>

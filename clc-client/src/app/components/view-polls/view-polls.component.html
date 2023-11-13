@@ -1,0 +1,9 @@
+<div class="flex flex-wrap column-gap-3 row-gap-3">
+    <div class="border-round flex align-items-center justify-content-center" *ngFor="let poll of polls">
+        <p-card role="region">
+            <h1>{{poll.topic}}</h1>
+            <button title="results" pButton pRipple label="Results" class="p-button-help m-1" (click)="viewPollResults(poll)"></button>
+            <button title="participate" pButton pRipple label="Participate" class="p-button-secondary m-1" (click)="participatePoll(poll)"></button>
+        </p-card>
+    </div>
+</div>
